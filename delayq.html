@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html> <head> 
-    <title>Delay queue</title><style>
+<html> 
+    <head> 
+    <title> Delay queue </title>
+    <style>
 
     .flex-container {
       display: flex;  flex-direction:row;
@@ -20,6 +22,7 @@
 	  }
 	}
 </style>
+
 </head>
 
 
@@ -37,8 +40,12 @@
 		  <div class="delayQ">row item 3</div>  
 		</div>
 	
-	<p> Press the button to create an new element of type div and then add it to the container.
-		</p>
+	<p> Press the button to create an new element of type div and then add it to the container.</p>
+
+
+    <input class="btn" type="button" value="Get" onclick="get()">
+    <input class="btn" type="button" value="Delay" onclick="delay()">
+
        
 <br>	
 	
@@ -58,5 +65,31 @@
 		container.appendChild(element)
 		
 	}
+    function get()
+            {
+                let queueItems = document.getElementsByClassName("delayQ")
+                console.log(queueItems)
+                let length_elements = queueItems.length
+                if (length_elements>0){
+                    queueItems[0].remove()
+                }
+            }
+    function delay()
+            {
+                let queueItems = document.getElementsByClassName("delayQ")
+                let length_elements = queueItems.length
+                if(length_elements==0 || length_elements==1)
+                {
+                    console.log("Not enough elements to delay")
+                }
+                else{
+                    let removedItem = queueItems[length_elements-1]
+                    queueItems[length_elements-1].remove()
+                    console.log(removedItem)
+                    let container_div = document.getElementById("target")
+                    container_div.insertBefore(removedItem,container_div.firstChild)
+                }
+            }
+
 </script>
 </html>	
