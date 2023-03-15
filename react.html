@@ -25,11 +25,20 @@
   onclick="recordTime()">
   React</button>
 
+  
+
  
   
   <script> 
 
-  let reactTime=undefined;
+  let reactTime=undefined; 
+
+  
+  function randCount()
+  {
+  let num=Math.floor(Math.random()*9)+3;
+  return num;
+  }
 
   function recordTime(){
     reactTime=Date.now();
@@ -37,7 +46,7 @@
   }
 
   function startTime(){
-    let startCount=9
+    let startCount=randCount();
     for(let i=0;i<startCount;i++){
         setTimeout(function() {
             console.log("Values after" +i)
