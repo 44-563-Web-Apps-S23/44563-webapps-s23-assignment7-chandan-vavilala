@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html> <head> 
+    <title>Delay queue</title><style>
+
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: blueviolet;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style>
+</head>
+
+
+
+<body>
+    <h1>Poorna Chandan Reddy Vavilala builds a delaying queue</h1>
+    <label for="input">Enter the name of the item</label>
+    <input type="text" id="input">
+    <button onclick="makeNewDiv()">Add Value</button>
+
+    <br><br>
+		<div class="flex-container" id="target">
+		  <div class="delayQ">row item 1</div>   
+		  <div class="delayQ">row item 2</div>  
+		  <div class="delayQ">row item 3</div>  
+		</div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.
+		</p>
+       
+<br>	
+	
+</body>
+
+<script>
+	function makeNewDiv(){
+		/* make the div and its text */
+		let element = document.createElement("div")
+        let newElement = document.getElementById("input").value
+		element.innerHTML = newElement
+        element.className = "delayQ"
+		element.style.color = "peach"
+
+		/* add it to the container */
+		let container = document.getElementById('target')
+		container.appendChild(element)
+		
+	}
+</script>
+</html>	
