@@ -44,6 +44,7 @@ integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5
         <div  onclick="help()" >Click for Help</div>
         <div id="help">Help Report</div>
     </div>
+    <button onclick="window.location.reload();">New Game</button>
 
     <div class="container">
         <div class="row"> 
@@ -89,12 +90,20 @@ integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5
         let catLocation=21;
         let gameOver = false;
         
-        
+        function randCount()
+            {
+             let num=Math.floor((Math.random()*23) +0);
+             return num;
+            }
+
+
         function check(position)
             { 
+               mousenum=randCount();
+               catnum=randCount();
             if(gameOver == true){}
             else{
-                if(position==13){
+                if(position==mousenum){
                     document.getElementById(ids[position]).src="MOUSE.jpg";
                     gameOver = true;
                     penalty=penalty-3;
@@ -103,7 +112,7 @@ integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5
                     console.log("GameOver");               
                 }
                 
-                else if(position==21){
+                else if(position==catnum){
                     document.getElementById(ids[position]).src="cat.jpeg";
                     gameOver = true;
                     penalty=penalty+4;
@@ -174,6 +183,7 @@ integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5
             
             row2--;
             col2++;
+
             if((row==row1)){
                 if(col>col1){
                     if(col1+1==col){
@@ -294,10 +304,8 @@ integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5
             }
             Penalty.innerHTML="Penalty is "+penalty;
             }
-
-
-    
-
+           
+      
     </script>
 
     </body>
